@@ -3,5 +3,15 @@
   "private": true,
   "devDependencies": {
     "takkel": "file:vendor/takkel-0.0.0.tgz"
+  },
+  "overrides": {
+    "@takkel/helper-darwin-arm64": "file:vendor/takkel-helper-darwin-arm64-0.0.0.tgz",
+    "@takkel/helper-darwin-x64": "file:vendor/takkel-helper-darwin-x64-0.0.0.tgz",
+    "@takkel/helper-linux-arm64-gnu": "file:vendor/takkel-helper-linux-arm64-gnu-0.0.0.tgz",
+    "@takkel/helper-linux-arm64-musl": "file:vendor/takkel-helper-linux-arm64-musl-0.0.0.tgz",
+    "@takkel/helper-linux-x64-gnu": "file:vendor/takkel-helper-linux-x64-gnu-0.0.0.tgz",
+    "@takkel/helper-linux-x64-musl": "file:vendor/takkel-helper-linux-x64-musl-0.0.0.tgz",
+    "@takkel/helper-win32-arm64": "file:vendor/takkel-helper-win32-arm64-0.0.0.tgz",
+    "@takkel/helper-win32-x64": "file:vendor/takkel-helper-win32-x64-0.0.0.tgz"
   }
 }
