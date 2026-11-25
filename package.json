@@ -1,0 +1,7 @@
+{
+  "name": "takkel-ci-cache-test",
+  "private": true,
+  "devDependencies": {
+    "takkel": "file:vendor/takkel-0.0.0.tgz"
+  }
+}

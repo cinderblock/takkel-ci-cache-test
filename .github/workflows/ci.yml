@@ -1,0 +1,28 @@
+# A build-and-test workflow written the way takkel's README says: the actions/github-script step exports GitHub's
+# cache service address and token, and takkel then uses the service by itself. No actions/cache step, so a warm
+# second run can only come from that service.
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL);
+            core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN);
+      - run: npx takkel build --progress plain
+      - run: npx takkel test --progress plain
